@@ -5,9 +5,10 @@ from operator import mul
 from functools import reduce
 from decimal import Decimal, localcontext
 
-MESSAGE = b'tryin to create a message long enough to give different values when being encrypted'
+MESSAGE = 'tryin to create a message long enough to result in different values when being encrypted'
 EXP = 17
 
+# for testing purposes only #
 def generate_key(exp=EXP):
     random_generator = Random.new().read
     key = RSA.generate(1024, random_generator, e = exp)
@@ -17,6 +18,8 @@ def encrypt(m=MESSAGE):
     key = generate_key()
     key.encrypt
     return key.encrypt(bytes_to_long(MESSAGE), 0)[0], key.n
+
+#############################
 
 def CRT(modules, values):
     sum_ = 0
@@ -34,14 +37,16 @@ def separate(data):
 
 def root(num, e):
     with localcontext() as context:
-        context.prec = 1025
+        context.prec = 4200
         exp = Decimal(1.) / Decimal(e)
         return int(Decimal(num) ** exp)
 
-def crack(data, exp):
+#data = [(c_i, n_i)]
+def hastad(data, exp):
     ciphertexts, modules = separate(data)
     crt_value = CRT(modules, ciphertexts)
-    return long_to_bytes(root(crt_value, exp))
+    r = root(crt_value, exp)
+    return long_to_bytes(r)
 
 if __name__ == "__main__":
     data = tuple(encrypt() for i in range(EXP))
