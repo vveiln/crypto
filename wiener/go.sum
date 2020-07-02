@@ -1,3 +1,2 @@
 github.com/vveiln/crypto v0.0.0-20200309131127-ed2d3ca441a5 h1:m9YRd0FF0SQGDMAfxtQZHmwq3WxQaA/KJSq3Br96uP0=
-github.com/vveiln/go_continued_fraction v0.0.0-20200628101808-361308e5ad37 h1:9CSkD6hVaGJvi+pS8QEPylTkH8dh10DGaCYoiaPXoyM=
-github.com/vveiln/go_continued_fraction v0.0.0-20200628101808-361308e5ad37/go.mod h1:+aa03YBmro5VrjWZNRpzqi3DXkYW9BPwEB0J4sySa6k=
+github.com/vveiln/crypto v0.0.0-20200309131127-ed2d3ca441a5/go.mod h1:wuFGh4W0BRPPArMnRyPFuwSKmQw7VI8wOyMzZaqV/PE=
